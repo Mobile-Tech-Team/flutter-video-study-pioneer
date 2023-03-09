@@ -11,7 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<String> _product = ["Food Tester"];
+  List<String> _products = ["Food Tester"];
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +25,16 @@ class _MyAppState extends State<MyApp> {
               Container(
                 margin: EdgeInsets.all(10.0),
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      _products.add("Advanced Beauty Tester");
+                    });
+                  },
                   child: Text("Add Product"),
                 ),
               ),
               Column(
-                children: _product
+                children: _products
                     .map((element) => Card(
                           child: Column(children: <Widget>[
                             Image.asset("assets/anna.png"),
